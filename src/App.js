@@ -16,8 +16,21 @@ const App = () => {
         .then((regs) => regs.forEach((reg) => reg.update()));
     });
   }, []);
+
+  const handleUpdateServiceWorker = () => {
+    navigator.serviceWorker
+      .getRegistrations()
+      .then((regs) => regs.forEach((reg) => {
+        reg.waiting.postMessage({ type: "SKIP_WAITING" });
+      }));
+  };
+
   return (
     <React.Suspense fallback='loading...'>
+      <div id='new-updates'>
+        There is a new version available.{' '}
+        <button onClick={handleUpdateServiceWorker}>Update</button>
+      </div>
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/page1' component={Page1} />

@@ -1,3 +1,15 @@
 .App {
   text-align: center;
 }
+
+#new-updates {
+  display: none;
+  position: fixed;
+  bottom: 5px;
+  padding: 8px;
+  background-color: #333333;
+  color: white;
+}
+#new-updates.show {
+  display: block;
+}
