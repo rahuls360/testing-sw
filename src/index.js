@@ -1,18 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import App from './App';
-import Page1 from './Page1';
-import Page2 from './Page2';
 import * as serviceWorker from './serviceWorker';
+const App = React.lazy(() => import('./App'));
+const Page1 = React.lazy(() => import('./Page1'));
+const Page2 = React.lazy(() => import('./Page2'));
 
 ReactDOM.render(
   <BrowserRouter>
-    <Switch>
-      <Route exact path='/' component={App} />
-      <Route path='/page1' component={Page1} />
-      <Route path='/page2' component={Page2} />
-    </Switch>
+    <React.Suspense fallback='loading...'>
+      <Switch>
+        <Route exact path='/' component={App} />
+        <Route path='/page1' component={Page1} />
+        <Route path='/page2' component={Page2} />
+      </Switch>
+    </React.Suspense>
   </BrowserRouter>,
   document.getElementById('root')
 );
