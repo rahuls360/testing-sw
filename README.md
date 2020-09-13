@@ -1,68 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Experiments with deploying latest content on a SPA using service workers
 
-## Available Scripts
+1. Clone the project
+   `git clone https://github.com/rahuls360/testing-sw.git`
+2. Install dependencies
+   `yarn install`
+3. Connect repo to your hosting. I used netlify-cli
+   `npm install -g netlify-cli`
+4. Login to netlify-cli
+   `netlify login`
+5. Deploy to Netlify
+   `yarn run deploy:prod`
+6. Make minor text changes
+7. Deploy new changes
+   `yarn run deploy:prod`
+8. Try to navigate between pages. You will see an 'Updates available' message, across all your open tabs.
+9. On clicking on 'Update'. The service worker are updated and all of your site's tabs are reloaded with new content.
+10. Profit ??
 
-In the project directory, you can run:
+#### References
 
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[The Service Worker Lifecycle](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle)
+[Building PWAs with React and Workbox](https://www.youtube.com/watch?v=Ok2r1M1jM_M)
+[Checking for service worker updates in a single page app](https://stackoverflow.com/questions/51748241/checking-for-service-worker-updates-in-a-single-page-app)
+[Service worker JavaScript update frequency (every 24 hours?)](https://stackoverflow.com/questions/38843970/service-worker-javascript-update-frequency-every-24-hours)
+[Activate updated service worker on refresh](https://stackoverflow.com/questions/40100922/activate-updated-service-worker-on-refresh/50535316#50535316)
+[Service Workers Break the Browser’s Refresh Button by Default; Here’s Why](https://redfin.engineering/service-workers-break-the-browsers-refresh-button-by-default-here-s-why-56f9417694)
+[⚡️Talk - Syncing Component State Across Tabs with Service Workers - Tyler Clark - React Conf 2018
+](https://www.youtube.com/watch?v=tq4vXRT7TU0)[react-conf-service-worker](https://github.com/twclark0/react-conf-service-worker)
+[Tyler Clark - React to Web Workers](https://www.youtube.com/watch?v=pcYuOOe-kbw)
+and many more...
