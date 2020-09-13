@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "yarn run build && http-server ./build"
+    "deploy:local": "yarn run build && http-server ./build"
   },
   "eslintConfig": {
     "extends": "react-app"
