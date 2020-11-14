@@ -66,6 +66,11 @@ function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
+      // if service worker already in waiting state, show snackbar
+      if (registration.waiting && registration.waiting.state === 'installed') {
+        let snackbar = document.getElementById('new-updates');
+        snackbar.className = 'show';
+      }
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {
