@@ -49,14 +49,14 @@ export function register(config) {
       } else {
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
-        var refreshing;
-        // When the user asks to refresh the UI, we'll need to reload the window
-        navigator.serviceWorker.addEventListener('controllerchange', function (event) {
-          if (refreshing) return; // prevent infinite refresh loop when you use "Update on Reload"
-          refreshing = true;
-          console.log('Controller loaded');
-          window.location.reload();
-        });
+      //   var refreshing;
+      //   // When the user asks to refresh the UI, we'll need to reload the window
+      //   navigator.serviceWorker.addEventListener('controllerchange', function (event) {
+      //     if (refreshing) return; // prevent infinite refresh loop when you use "Update on Reload"
+      //     refreshing = true;
+      //     console.log('Controller loaded');
+      //     window.location.reload();
+      //   });
       }
     });
   }
@@ -102,6 +102,9 @@ function registerValidSW(swUrl, config) {
           }
         };
       };
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+            window.location.reload();
+          });
     })
     .catch(error => {
       console.error('Error during service worker registration:', error);
